@@ -17,7 +17,7 @@ def draw_plot():
     # Create first line of best fit
     lobf = linregress(x, y)
 
-    x_2050 = np.append(x.min(), 2050)
+    x_2050 = np.append(x, [i for i in range(2014, 2051, 1)])
 
     # ax.plot(x, lobf.intercept + lobf.slope*x, 'r')
     ax.plot(x_2050, lobf.intercept + lobf.slope*x_2050, 'r')
@@ -28,7 +28,7 @@ def draw_plot():
     
     lobf_2000 = linregress(df_2000['Year'], df_2000['CSIRO Adjusted Sea Level'])
     
-    x_2000_2050 = np.append(2000, 2050)
+    x_2000_2050 = np.append(df_2000['Year'], [i for i in range(2014, 2051, 1)])
 
     ax.plot(x_2000_2050, lobf_2000.intercept + lobf_2000.slope*x_2000_2050, 'r--')
 
